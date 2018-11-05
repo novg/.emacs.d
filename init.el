@@ -74,6 +74,11 @@
 (add-hook 'after-make-frame-functions
           #'my-make-frame-function)
 
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
 ;;
 ;; CONVENIENCE FUNCTIONS, ALIASES, AND KEY BINDINGS
 ;;
@@ -88,7 +93,7 @@
   (kill-ring-save (line-beginning-position)
                   (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
-(global-set-key "\C-c\C-k" 'copy-line)
+(global-set-key "\C-c\C-y" 'copy-line)
 
 (defun comment-or-uncomment-this (&optional lines)
   "Comment current line or selected region"
