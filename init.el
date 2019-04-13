@@ -95,21 +95,23 @@
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 (global-set-key "\C-c\C-y" 'copy-line)
 
-(defun comment-or-uncomment-this (&optional lines)
-  "Comment current line or selected region"
-  (interactive "P")
-  (if mark-active
-      (if (< (mark) (point))
-	  (comment-or-uncomment-region (mark) (point))
-	(comment-or-uncomment-region (poin) (mark)))
-    (comment-or-uncomment-region
-     (line-beginning-position)
-     (line-end-position lines))
-    (next-line)))
-(global-set-key (kbd "C-;") 'comment-or-uncomment-this)
+;; (defun comment-or-uncomment-this (&optional lines)
+;;   "Comment current line or selected region (LINES)."
+;;   (interactive "P")
+;;   (if mark-active
+;;       (if (< (mark) (point))
+;; 	  (comment-or-uncomment-region (mark) (point))
+;; 	(comment-or-uncomment-region (poin) (mark)))
+;;     (comment-or-uncomment-region
+;;      (line-beginning-position)
+;;      (line-end-position lines))
+;;     (next-line)))
+;; (global-set-key (kbd "C-;") 'comment-or-uncomment-this)
+(global-set-key (kbd "C-;") 'comment-line)
+
 
 (defun backward-kill-word-or-kill-region (arg)
-  "C-w delete previous word or region"
+  "Delete previous word (ARG) or region."
   (interactive "p")
   (if (region-active-p)
       (kill-region (region-beginning)
