@@ -41,6 +41,7 @@
 (global-hl-line-mode t) ;; Highlight current line
 
 (defun my-make-frame-function(frame)
+  "Auxilary func for reset FRAME."
   (if (not (featurep 'powerline))
       (powerline-center-theme)))
 
@@ -48,7 +49,7 @@
   (my-make-frame-function (selected-frame))
   (set-frame-size (selected-frame) 160 42)
   (set-frame-position (selected-frame) 130 10)
-  (load-theme 'solarized-light t)
+  (load-theme 'material t)
   (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 17)))
 
 (require 'powerline)
@@ -88,25 +89,13 @@
 (global-set-key (kbd "S-SPC") 'dabbrev-expand)
 
 (defun copy-line (arg)
-  "Copy lines (as many as prefix argument) in the kill ring"
+  "Copy lines (as many as prefix ARG) in the kill ring."
   (interactive "p")
   (kill-ring-save (line-beginning-position)
                   (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 (global-set-key "\C-c\C-y" 'copy-line)
 
-;; (defun comment-or-uncomment-this (&optional lines)
-;;   "Comment current line or selected region (LINES)."
-;;   (interactive "P")
-;;   (if mark-active
-;;       (if (< (mark) (point))
-;; 	  (comment-or-uncomment-region (mark) (point))
-;; 	(comment-or-uncomment-region (poin) (mark)))
-;;     (comment-or-uncomment-region
-;;      (line-beginning-position)
-;;      (line-end-position lines))
-;;     (next-line)))
-;; (global-set-key (kbd "C-;") 'comment-or-uncomment-this)
 (global-set-key (kbd "C-;") 'comment-line)
 
 
@@ -124,7 +113,7 @@
             (define-key ido-completion-map (kbd "C-w") 'ido-delete-backward-word-updir)))
 
 (defun kill-current-buffer ()
-  "C-x C-k current killing buffer"
+  "Killing current buffer."
   (interactive)
   (kill-buffer (current-buffer)))
 (global-set-key (kbd "C-x C-k") 'kill-current-buffer)

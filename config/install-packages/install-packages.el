@@ -14,7 +14,10 @@
     elpy
     flycheck
     py-autopep8
-    solarized-theme))
+    solarized-theme
+    material-theme
+    magit
+    ))
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
