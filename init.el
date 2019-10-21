@@ -75,10 +75,31 @@
 (add-hook 'after-make-frame-functions
           #'my-make-frame-function)
 
+<<<<<<< HEAD
 ;; (require 'whitespace)
 ;; (setq whitespace-line-column 80) ;; limit line length
 ;; (setq whitespace-style '(face lines-tail))
 ;; (add-hook 'prog-mode-hook 'whitespace-mode)
+=======
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+;; (setq whitespace-style '(face lines-tail))
+(setq whitespace-style '(lines))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+>>>>>>> 27c27d31b32e0287d73c65af8c43e76ef8da1edb
+
+;; make it delete trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Enable paredit mode
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook          #'enable-paredit-mode)
 
 ;;
 ;; CONVENIENCE FUNCTIONS, ALIASES, AND KEY BINDINGS

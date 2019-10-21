@@ -33,8 +33,10 @@
     py-autopep8            ;; Run autopep8 on save
     blacken                ;; Black formatting on save
     magit                  ;; Git integration
+    cider                  ;; Support for interactive programming in Clojure
     solarized-theme        ;; Theme
     material-theme         ;; Theme
+    paredit                ;; Minor mode for performing structured editing of
     ))
 
 ;; Scan the list in my-packages
