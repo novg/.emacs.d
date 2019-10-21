@@ -50,7 +50,7 @@
   (set-frame-size (selected-frame) 160 42)
   (set-frame-position (selected-frame) 130 10)
   (load-theme 'material t)
-  (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 17)))
+  (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 14)))
 
 (require 'powerline)
 (powerline-center-theme)
@@ -75,10 +75,10 @@
 (add-hook 'after-make-frame-functions
           #'my-make-frame-function)
 
-(require 'whitespace)
-(setq whitespace-line-column 80) ;; limit line length
-(setq whitespace-style '(face lines-tail))
-(add-hook 'prog-mode-hook 'whitespace-mode)
+;; (require 'whitespace)
+;; (setq whitespace-line-column 80) ;; limit line length
+;; (setq whitespace-style '(face lines-tail))
+;; (add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;;
 ;; CONVENIENCE FUNCTIONS, ALIASES, AND KEY BINDINGS
@@ -153,3 +153,4 @@
 (load custom-file)
 
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
