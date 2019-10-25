@@ -50,7 +50,7 @@
   (set-frame-size (selected-frame) 160 42)
   (set-frame-position (selected-frame) 130 10)
   (load-theme 'material t)
-  (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 14)))
+  (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 17)))
 
 (require 'powerline)
 (powerline-center-theme)
@@ -92,6 +92,13 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 (add-hook 'clojure-mode-hook          #'enable-paredit-mode)
+
+
+;; Enable projectile
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 
 ;;
 ;; CONVENIENCE FUNCTIONS, ALIASES, AND KEY BINDINGS
