@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(global-flycheck-mode)
+;;(global-flycheck-mode)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;(add-hook 'prog-mode-hook 'flyspell-prog-mode)
