@@ -37,6 +37,7 @@
     solarized-theme        ;; Theme
     material-theme         ;; Theme
     paredit                ;; Minor mode for performing structured editing of
+    restclient             ;; This is a tool to manually explore and test HTTP REST webservices
     ))
 
 ;; Scan the list in my-packages

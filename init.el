@@ -75,18 +75,10 @@
 (add-hook 'after-make-frame-functions
           #'my-make-frame-function)
 
-<<<<<<< HEAD
 ;; (require 'whitespace)
 ;; (setq whitespace-line-column 80) ;; limit line length
 ;; (setq whitespace-style '(face lines-tail))
 ;; (add-hook 'prog-mode-hook 'whitespace-mode)
-=======
-(require 'whitespace)
-(setq whitespace-line-column 80) ;; limit line length
-;; (setq whitespace-style '(face lines-tail))
-(setq whitespace-style '(lines))
-(add-hook 'prog-mode-hook 'whitespace-mode)
->>>>>>> 27c27d31b32e0287d73c65af8c43e76ef8da1edb
 
 ;; make it delete trailing whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -167,6 +159,9 @@
     (previous-line 2)
     (move-to-column col)))
 (global-set-key (kbd "<M-up>") 'move-line-up)
+
+(add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
+
 
 (require 'init-helm)
 (require 'development)
