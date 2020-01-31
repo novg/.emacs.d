@@ -28,43 +28,43 @@
 ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 ;; (define-key global-map (kbd "RET") 'newline-and-indent)
-(require 'lsp-mode)
+;; (require 'lsp-mode)
 
-(require 'lsp-ui-imenu)
-(add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-
-
-(lsp-register-client
- (make-lsp-client :new-connection (lsp-stdio-connection "pyls")
-                  :major-modes '(python-mode)
-                  :server-id 'pyls))
+;; (require 'lsp-ui-imenu)
+;; (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
 
 
-(add-hook 'python-mode-hook
-          (lambda ()
-            (lsp-python-enable)))
+;; (lsp-register-client
+ ;; (make-lsp-client :new-connection (lsp-stdio-connection "pyls")
+                  ;; :major-modes '(python-mode)
+                  ;; :server-id 'pyls))
 
-(require 'lsp-ui)
-(setq lsp-ui-sideline-ignore-duplicate t)
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+;; (add-hook 'python-mode-hook
+          ;; (lambda ()
+            ;; (lsp-python-enable)))
+
+;; (require 'lsp-ui)
+;; (setq lsp-ui-sideline-ignore-duplicate t)
+;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 
 ;; (push 'company-lsp company-backends)
 
 
-(add-hook 'python-mode-hook #'lsp)
+;; (add-hook 'python-mode-hook #'lsp)
 
 
-(require 'company-lsp)
-(push 'company-lsp company-backends)
+;; (require 'company-lsp)
+;; (push 'company-lsp company-backends)
 
 ;; KEYBINDINGS
 
-(global-set-key (kbd "<f4>") 'lsp-find-definition)
-(global-set-key (kbd "M-<f7>") 'lsp-find-references)
-(global-set-key (kbd "S-<f6>") 'lsp-rename)
-(global-set-key (kbd "C-?") 'company-lsp)
+;; (global-set-key (kbd "<f4>") 'lsp-find-definition)
+;; (global-set-key (kbd "M-<f7>") 'lsp-find-references)
+;; (global-set-key (kbd "S-<f6>") 'lsp-rename)
+;; (global-set-key (kbd "C-?") 'company-lsp)
 
-(add-hook 'after-save-hook 'lsp-format-buffer)
+;; (add-hook 'after-save-hook 'lsp-format-buffer)
 
 
 

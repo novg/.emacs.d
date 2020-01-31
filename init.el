@@ -50,7 +50,7 @@
   (set-frame-size (selected-frame) 160 42)
   (set-frame-position (selected-frame) 130 10)
   (load-theme 'material t)
-  (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 17)))
+  (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 14)))
 
 (require 'powerline)
 (powerline-center-theme)
@@ -95,9 +95,9 @@
 
 
 ;; Enable projectile
-(projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+;(projectile-mode +1)
+;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+;(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 
 ;;
@@ -116,7 +116,7 @@
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 (global-set-key "\C-c\C-y" 'copy-line)
 
-(global-set-key (kbd "C-;") 'comment-line)
+(global-set-key (kbd "C-/") 'comment-line)
 
 
 (defun backward-kill-word-or-kill-region (arg)

@@ -38,13 +38,13 @@
     material-theme         ;; Theme
     paredit                ;; Minor mode for performing structured editing of
     restclient             ;; This is a tool to manually explore and test HTTP REST webservices
-    projectile             ;; Project Interaction Library
-    lsp-mode               ;; Language Server Protocol Support
-    lsp-ui                 ;; Contains all the higher level UI modules of lsp-mode
-    lsp-treemacs           ;; Integration between lsp-mode and treemacs
-    helm-lsp               ;; Provides alternative of the build-in lsp-mode xref-appropos
-    company-lsp            ;; Company completion backend for lsp-mode
-    dap-mode               ;; Debug Adapter Protocol is a wire protocol
+    ;projectile             ;; Project Interaction Library
+    ;lsp-mode               ;; Language Server Protocol Support
+    ;lsp-ui                 ;; Contains all the higher level UI modules of lsp-mode
+    ;lsp-treemacs           ;; Integration between lsp-mode and treemacs
+    ;helm-lsp               ;; Provides alternative of the build-in lsp-mode xref-appropos
+    ;company-lsp            ;; Company completion backend for lsp-mode
+    ;dap-mode               ;; Debug Adapter Protocol is a wire protocol
     ))
 
 ;; Scan the list in my-packages
