@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(package-initialize)
+;; (package-initialize)
 
 ;; Directory with local Emacs lisp files
 ;; (let ((path (expand-file-name "~/.emacs.d/lisp/")))
@@ -49,8 +49,11 @@
   (my-make-frame-function (selected-frame))
   (set-frame-size (selected-frame) 160 42)
   (set-frame-position (selected-frame) 130 10)
-  (load-theme 'material t)
-  (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 14)))
+  (load-theme 'solarized-light t)
+;; (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 14)))
+  (set-frame-font (format "Consolas:pixelsize=%d:antialias:true:autohint=true" 20))
+)
+
 
 (require 'powerline)
 (powerline-center-theme)
@@ -63,7 +66,7 @@
   (interactive)
   (mapc #'disable-theme custom-enabled-themes)
   (when (load-theme my-light-theme t)
-    (powerline-reset)))
+  (powerline-reset)))
 
 (defun my-dark-theme ()
   "Switch to dark theme."
@@ -177,3 +180,8 @@
 
 ;;; init.el ends here
 (put 'upcase-region 'disabled nil)
+
+;; ORG-MODE
+;; Time mark for task closing
+(setq org-log-done t)
+(add-hook 'org-mode-hook (lambda () (linum-mode 0)))
