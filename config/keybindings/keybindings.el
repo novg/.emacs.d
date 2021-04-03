@@ -21,7 +21,7 @@
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 (global-set-key "\C-c\C-y" 'copy-line)
 
-(global-set-key (kbd "C-;") 'comment-line)
+(global-set-key (kbd "C-/") 'comment-line)
 
 
 (defun backward-kill-word-or-kill-region (arg)
