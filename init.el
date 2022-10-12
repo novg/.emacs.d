@@ -1,124 +1,58 @@
-;;; init.el --- Custom Emacs Configuration
-
-;;; Commentary:
-
-;;; Code:
-
-;; (package-initialize)
-
-;; Directory with local Emacs lisp files
-;; (let ((path (expand-file-name "~/.emacs.d/lisp/")))
-;;   (if (file-accessible-directory-p path)
-;;       (add-to-list 'load-path path)))
+;; add descendant directories to 'load-path'
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(setq default-directory (concat (getenv "HOME") "\\"))
+(if (eq system-type 'windows-nt)
+    (setq default-directory (concat (getenv "HOME") "\\")))
 
-(require 'install-packages)
-(require 'better-defaults)
+(setq inhibit-startup-screen t) ;; disable startup screen
+(tool-bar-mode -1) ;; disable tool bar
+(menu-bar-mode -1) ;; disable menu bar
+(scroll-bar-mode -1) ;; disable scroll bar
+(setq frame-title-format "GNU Emacs: %b")
+(setq ring-bell-function 'ignore)
 
-;; BASIC CUSTOMIZATION
-;; -------------------------------------
-(setq inhibit-startup-message t
-      linum-format "%4d \u2502 "
-      backup-directory-alist `((".*" . ,temporary-file-directory))
-      auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
-      frame-title-format "GNU Emacs: %b" ;; Display the name of the current buffer in the title bar
-      tooltip-mode  0
-      column-number-mode t  ;; show number of column at mode-line
-      scroll-step               1
-      scroll-margin             5
-      scroll-conservatively 10000
-      ring-bell-function 'ignore
-      custom-file "~/.emacs.d/custom.el")
+(setq backup-directory-alist `((".*" . ,temporary-file-directory))     
+      auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
-(global-linum-mode  t)    ;; show nubers of strings at all buffers
+(setq scroll-step 1
+      scroll-margin 3
+      scroll-conservatively 10000)
 
-;; (setq-default indicate-empty-lines t)
-;; (setq-default indicate-buffer-boundaries 'left)
-(defalias 'yes-or-no-p 'y-or-n-p)
+;; (setq indent-tabs-mode nil)
+;; (setq tab-width 8)
+
+(setq apropos-sort-by-scores t)
+
+;; show line numbers
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
+(column-number-mode)
 (global-hl-line-mode t) ;; Highlight current line
 
-(defun my-make-frame-function(frame)
-  "Auxilary func for reset FRAME."
-  (if (not (featurep 'powerline))
-      (powerline-center-theme)))
+;; windows management
+(setq winner-mode t) ;; undo/redo windows splitting
+(windmove-default-keybindings) ;; switch windows <S-arrow>
+(global-set-key (kbd "M-o") 'other-window) ;; switch windows instead "C-x o"
 
-(when window-system
-  (my-make-frame-function (selected-frame))
-  (set-frame-size (selected-frame) 150 36)
-  (set-frame-position (selected-frame) 40 10)
-  (load-theme 'solarized-light t)
-;; (set-frame-font (format "DejaVu Sans Mono:pixelsize=%d:antialias:true:autohint=true" 14)))
-  (set-frame-font (format "Consolas:pixelsize=%d:antialias:true:autohint=true" 22)))
+;; key bindings
+(global-set-key [remap list-buffers] 'ibuffer)
+(global-set-key (kbd "<f6>") 'toggle-truncate-lines) ;; toggle word wrapping
+(global-set-key (kbd "M-i" ) 'imenu)
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
+(global-set-key (kbd "M-S-z") 'zap-up-to-char)
 
-(require 'powerline)
-(powerline-center-theme)
-
-(setq my-dark-theme 'material
-      my-light-theme 'solarized-light)
-
-(defun my-light-theme ()
-  "Switch to light theme."
+(defun sudo ()
+  "Use TRAMP to `sudo` the current buffer."
   (interactive)
-  (mapc #'disable-theme custom-enabled-themes)
-  (when (load-theme my-light-theme t)
-  (powerline-reset)))
+  (when buffer-file-name
+    (find-alternate-file
+     (concat "/sudo:root@localhost:"
+	     buffer-file-name))))
 
-(defun my-dark-theme ()
-  "Switch to dark theme."
-  (interactive)
-  (mapc #'disable-theme custom-enabled-themes)
-  (when (load-theme my-dark-theme t)
-    (powerline-reset)))
-
-(add-hook 'after-make-frame-functions
-          #'my-make-frame-function)
-
-;; (require 'whitespace)
-;; (setq whitespace-line-column 80) ;; limit line length
-;; (setq whitespace-style '(face lines-tail))
-;; (add-hook 'prog-mode-hook 'whitespace-mode)
-
-;; make it delete trailing whitespace
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; Enable paredit mode
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-(add-hook 'clojure-mode-hook          #'enable-paredit-mode)
-
-
-;; Enable projectile
-;(projectile-mode +1)
-;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-;(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-
-;;
-;; CONVENIENCE FUNCTIONS, ALIASES, AND KEY BINDINGS
-;;
-
-(add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
-
+(require 'install-packages)
 (require 'init-helm)
 (require 'development)
-(require 'keybindings)
 
+(setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
-
-(put 'upcase-region 'disabled nil)
-
-;; ORG-MODE
-;; Time mark for task closing
-(setq org-log-done t)
-(add-hook 'org-mode-hook (lambda () (linum-mode 0)))
-
-
-;;; init.el ends here
