@@ -33,9 +33,9 @@
       my-packages)
 
 ;; Settings packages
-(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-(require 'better-defaults)
+;; (require 'better-defaults)
 
 (show-smartparens-global-mode t)
 (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)

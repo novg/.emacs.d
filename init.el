@@ -41,6 +41,7 @@
 (global-set-key (kbd "M-i" ) 'imenu)
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 (global-set-key (kbd "M-S-z") 'zap-up-to-char)
+(global-set-key (kbd "C-;") 'comment-line)
 
 (defun sudo ()
   "Use TRAMP to `sudo` the current buffer."
