@@ -35,6 +35,8 @@
 ;; Settings packages
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
+(require 'better-defaults)
+
 (show-smartparens-global-mode t)
 (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
 (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
