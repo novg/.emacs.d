@@ -43,19 +43,6 @@
 (global-set-key (kbd "M-S-z") 'zap-up-to-char)
 (global-set-key (kbd "C-;") 'comment-line)
 
-(defun backward-kill-word-or-kill-region (arg)
-  "C-w delete previous word or region"
-  (interactive "p")
-  (if (region-active-p)
-      (kill-region (region-beginning)
-		   (region-end))
-    (backward-kill-word arg)))
-(global-set-key (kbd "C-w") 'backward-kill-word-or-kill-region)
-(define-key minibuffer-local-map (kbd "C-w") 'backward-kill-word-or-kill-region)
-(add-hook 'ido-setup-hook
-	  (lambda ()
-	    (define-key ido-completion-map (kbd "C-w") 'ido-delete-backward-word-updir)))
-
 (defun sudo ()
   "Use TRAMP to `sudo` the current buffer."
   (interactive)
