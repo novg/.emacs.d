@@ -5,12 +5,16 @@
 (if (eq system-type 'windows-nt)
     (setq default-directory (concat (getenv "HOME") "\\")))
 
+(when window-system
+  (set-frame-size (selected-frame) 160 35))
+
 (setq inhibit-startup-screen t) ;; disable startup screen
 (tool-bar-mode -1) ;; disable tool bar
 (menu-bar-mode -1) ;; disable menu bar
 (scroll-bar-mode -1) ;; disable scroll bar
 (setq frame-title-format "GNU Emacs: %b")
 (setq ring-bell-function 'ignore)
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))     
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
