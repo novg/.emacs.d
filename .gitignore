@@ -12,3 +12,5 @@ history
 places
 custom.el
 /eln-cache
+.cache/
+*lsp-*

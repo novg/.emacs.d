@@ -1,3 +1,5 @@
+(setq lsp-clojure-custom-server-command '("bash" "-c" "~/.emacs.d/lsp-servers/clojure-lsp"))
+
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024)
       treemacs-space-between-root-nodes nil

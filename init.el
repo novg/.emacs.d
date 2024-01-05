@@ -2,8 +2,8 @@
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(if (eq system-type 'windows-nt)
-    (setq default-directory (concat (getenv "HOME") "\\")))
+;(if (eq system-type 'windows-nt)
+;    (setq default-directory (concat (getenv "HOME") "\\")))
 
 (when window-system
   (set-frame-size (selected-frame) 160 35))

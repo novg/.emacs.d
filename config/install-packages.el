@@ -17,13 +17,15 @@
 (defvar my-packages
   '(better-defaults        ;; Set up better Emacs defaults
     helm                   ;; Emacs incremental completion and selection narrowing framework
-    clojure-mode           ;; Major mode for editing Clojure and ClojureScript code
     cider                  ;; Clojure interactive development environment and REPL for Emacs
+    clojure-mode           ;; Major mode for editing Clojure and ClojureScript code
     lsp-mode
-    company
+    lsp-treemacs
     flycheck
+    company
     rainbow-delimiters     ;; Highlights parentheses, brackets, and braces according to their depth
     smartparens
+    auto-complete
     ))
 
 ;; Scan the list in my-packages
@@ -33,9 +35,10 @@
       my-packages)
 
 ;; Settings packages
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(require 'better-defaults)
 
-;; (require 'better-defaults)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+;; (ac-config-default)
 
 (show-smartparens-global-mode t)
 (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
