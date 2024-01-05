@@ -2,8 +2,8 @@
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-;(if (eq system-type 'windows-nt)
-;    (setq default-directory (concat (getenv "HOME") "\\")))
+(if (eq system-type 'windows-nt)
+    (setq default-directory (concat (getenv "HOME") "\\")))
 
 (when window-system
   (set-frame-size (selected-frame) 160 35))
@@ -37,13 +37,13 @@
 ;; windows management
 (setq winner-mode t) ;; undo/redo windows splitting
 (windmove-default-keybindings) ;; switch windows <S-arrow>
-(global-set-key (kbd "M-o") 'other-window) ;; switch windows instead "C-x o"
+;; (global-set-key (kbd "M-o") 'other-window) ;; switch windows instead "C-x o"
 
 ;; key bindings
 (global-set-key [remap list-buffers] 'ibuffer)
 (global-set-key (kbd "<f6>") 'toggle-truncate-lines) ;; toggle word wrapping
 (global-set-key (kbd "M-i" ) 'imenu)
-(global-set-key [remap dabbrev-expand] 'hippie-expand)
+;; (global-set-key [remap dabbrev-expand] 'hippie-expand)
 (global-set-key (kbd "M-S-z") 'zap-up-to-char)
 (global-set-key (kbd "C-;") 'comment-line)
 
@@ -56,8 +56,10 @@
 	     buffer-file-name))))
 
 (require 'install-packages)
-(require 'init-helm)
-(require 'development)
+;;(require 'init-helm)
+;;(require 'development)
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+(put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)

@@ -15,18 +15,7 @@
 ;;
 ;; my-packages contains a list of package names
 (defvar my-packages
-  '(better-defaults        ;; Set up better Emacs defaults
-    helm                   ;; Emacs incremental completion and selection narrowing framework
-    cider                  ;; Clojure interactive development environment and REPL for Emacs
-    clojure-mode           ;; Major mode for editing Clojure and ClojureScript code
-    lsp-mode
-    lsp-treemacs
-    flycheck
-    company
-    rainbow-delimiters     ;; Highlights parentheses, brackets, and braces according to their depth
-    smartparens
-    auto-complete
-    ))
+  '(use-package))
 
 ;; Scan the list in my-packages
 (mapc #'(lambda (package)
@@ -34,21 +23,15 @@
 	    (package-install package)))
       my-packages)
 
-;; Settings packages
-(require 'better-defaults)
+(require 'use-package)
 
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-;; (ac-config-default)
-
-(show-smartparens-global-mode t)
-(add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
-(add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
-(global-set-key (kbd "C-<right>") 'sp-forward-slurp-sexp)
-(global-set-key (kbd "M-<right>") 'sp-forward-barf-sexp)
-(global-set-key (kbd "C-<left>") 'sp-backward-slurp-sexp)
-(global-set-key (kbd "M-<left>") 'sp-backward-barf-sexp)
-(global-set-key (kbd "M-]") 'sp-unwrap-sexp)
-(global-set-key (kbd "M-[") 'sp-backward-unwrap-sexp)
-
+(require 'install-solarized-theme)
+(require 'install-better-defaults)
+;; (require 'install-rainbow-delimiters)
+(require 'install-treemacs)
+(require 'install-ace-window)
+(require 'install-restclient)
+(require 'install-eglot)
+;; (require 'install-cl)
 
 (provide 'install-packages)

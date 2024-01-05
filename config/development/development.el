@@ -1,3 +1,3 @@
-(require '_clojure)
+;; (require '_clojure)
 
 (provide 'development)
