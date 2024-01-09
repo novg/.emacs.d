@@ -5,4 +5,4 @@
 (eval-after-load 'sly
   `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
 
-(provide 'install-cl)
+(provide '_cl)

@@ -57,7 +57,7 @@
 
 (require 'install-packages)
 ;;(require 'init-helm)
-;;(require 'development)
+(require 'development)
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)

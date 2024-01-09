@@ -1,5 +1,5 @@
 (use-package rainbow-delimiters
   :ensure t
-  :hook prog-mode)
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (provide 'install-rainbow-delimiters)

@@ -27,11 +27,8 @@
 
 (require 'install-solarized-theme)
 (require 'install-better-defaults)
-;; (require 'install-rainbow-delimiters)
-(require 'install-treemacs)
+(require 'install-rainbow-delimiters)
 (require 'install-ace-window)
-(require 'install-restclient)
-(require 'install-eglot)
-;; (require 'install-cl)
+(require 'install-helm)
 
 (provide 'install-packages)

@@ -14,4 +14,4 @@
 (use-package csharp-mode
   :ensure t)
 
-(provide 'install-eglot)
+(provide '_eglot)
