@@ -65,4 +65,4 @@
   :config
   (which-key-mode 1))
 
-(provide '_lsp-clojure)
+(provide '_clojure)
