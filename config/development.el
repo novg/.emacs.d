@@ -1,5 +1,5 @@
 ;; (require '_lsp-mode)
 
-(require '_lsp-clojure)
+(require '_clojure)
 
 (provide 'development)

@@ -13,4 +13,5 @@ places
 custom.el
 /eln-cache
 .cache/
-*lsp*
+lsp/
+.lsp*
