@@ -29,5 +29,6 @@
 (require 'install-better-defaults)
 (require 'install-rainbow-delimiters)
 (require 'install-helm)
+(require 'install-treemacs)
 
 (provide 'install-packages)
