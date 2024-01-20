@@ -28,7 +28,6 @@
 (require 'install-solarized-theme)
 (require 'install-better-defaults)
 (require 'install-rainbow-delimiters)
-(require 'install-ace-window)
 (require 'install-helm)
 
 (provide 'install-packages)

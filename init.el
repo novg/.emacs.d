@@ -16,15 +16,14 @@
 (setq ring-bell-function 'ignore)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(set-frame-font "JetBrains Mono 15" nil t)
+
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))     
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 (setq scroll-step 1
       scroll-margin 3
       scroll-conservatively 10000)
-
-;; (setq indent-tabs-mode nil)
-;; (setq tab-width 8)
 
 (setq apropos-sort-by-scores t)
 
@@ -37,7 +36,7 @@
 ;; windows management
 (setq winner-mode t) ;; undo/redo windows splitting
 (windmove-default-keybindings) ;; switch windows <S-arrow>
-;; (global-set-key (kbd "M-o") 'other-window) ;; switch windows instead "C-x o"
+(global-set-key (kbd "M-o") 'other-window) ;; switch windows instead "C-x o"
 
 ;; key bindings
 (global-set-key [remap list-buffers] 'ibuffer)
@@ -56,10 +55,4 @@
 	     buffer-file-name))))
 
 (require 'install-packages)
-;;(require 'init-helm)
 (require 'development)
-
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-(put 'downcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
