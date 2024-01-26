@@ -16,7 +16,7 @@
 (setq ring-bell-function 'ignore)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(set-frame-font "JetBrains Mono 15" nil t)
+(set-frame-font "JetBrains Mono 11" nil t)
 
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))     
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))

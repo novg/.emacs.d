@@ -27,10 +27,13 @@
       ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
       )
 
-(setq tab-always-indent 'complete)
-
 (use-package cider
-  :ensure t)
+  :ensure t
+  :config
+  ;; (cider-enable-flex-completion)
+  (setq clojure-toplevel-inside-comment-form t)
+  (setq tab-always-indent 'complete)
+  (setq cider-enrich-classpath t))
 
 (use-package lsp-treemacs
   :ensure t)
