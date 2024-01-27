@@ -2,4 +2,4 @@
   :ensure t
   :mode (("\\.http\\'" . restclient-mode)))
 
-(provide 'install-restclient)
+(provide '_restclient)

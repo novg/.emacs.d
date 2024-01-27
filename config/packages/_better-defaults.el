@@ -1,4 +1,4 @@
 (use-package better-defaults
   :ensure t)
 
-(provide 'install-better-defaults)
+(provide '_better-defaults)

@@ -2,4 +2,4 @@
   :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(provide 'install-rainbow-delimiters)
+(provide '_rainbow-delimiters)

@@ -15,3 +15,5 @@ custom.el
 .cache/
 lsp/
 .lsp*
+bookmarks
+

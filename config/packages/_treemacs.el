@@ -109,4 +109,4 @@
   ;; :ensure t
   ;; :config (treemacs-set-scope-type 'Tabs))
 
-(provide 'install-treemacs)
+(provide '_treemacs)

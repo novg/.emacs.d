@@ -16,8 +16,6 @@
 (setq ring-bell-function 'ignore)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(set-frame-font "JetBrains Mono 11" nil t)
-
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))     
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
@@ -40,7 +38,7 @@
 
 ;; key bindings
 (global-set-key [remap list-buffers] 'ibuffer)
-(global-set-key (kbd "<f6>") 'toggle-truncate-lines) ;; toggle word wrapping
+(global-set-key (kbd "<f6>") 'toggle-truncate-lines)
 (global-set-key (kbd "M-i" ) 'imenu)
 ;; (global-set-key [remap dabbrev-expand] 'hippie-expand)
 (global-set-key (kbd "M-S-z") 'zap-up-to-char)
@@ -54,5 +52,8 @@
      (concat "/sudo:root@localhost:"
 	     buffer-file-name))))
 
-(require 'install-packages)
-(require 'development)
+(require '_packages)
+(require '_development)
+
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)

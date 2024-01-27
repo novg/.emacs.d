@@ -25,6 +25,6 @@
 ;; (global-set-key (kbd "C-h d") 'helm-info-at-point)
 ;; (global-set-key (kbd "C-c i") 'helm-imenu)
 
-(provide 'install-helm)
+(provide '_helm)
 
 ;;; init-helm.el ends here

@@ -25,10 +25,10 @@
 
 (require 'use-package)
 
-(require 'install-solarized-theme)
-(require 'install-better-defaults)
-(require 'install-rainbow-delimiters)
-(require 'install-helm)
-(require 'install-treemacs)
+(require '_themes)
+(require '_better-defaults)
+(require '_rainbow-delimiters)
+(require '_helm)
+(require '_treemacs)
 
-(provide 'install-packages)
+(provide '_packages)
