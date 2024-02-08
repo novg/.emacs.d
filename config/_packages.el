@@ -1,3 +1,7 @@
+;;; package --- clojure config
+;;; Commentary:
+;;; Code:
+
 ;; Enables basic packaging support
 (require 'package)
 
@@ -30,5 +34,7 @@
 (require '_rainbow-delimiters)
 (require '_helm)
 (require '_treemacs)
+(require '_which-key)
 
 (provide '_packages)
+;;; _packages.el ends here

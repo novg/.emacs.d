@@ -1,16 +1,6 @@
-(use-package lsp-mode
-  :ensure t
-  :hook ((cider-mode . cider-toggle-lsp-completion-maybe)
-         (before-save . lsp-format-buffer)
-         (clojure-mode . lsp)
-         (clojurec-mode . lsp)
-         (clojurescript-mode . lsp))
-         ;; (clojure-mode . smartparens-strict-mode)
-         ;; (clojurec-mode . smartparens-strict-mode)
-         ;; (clojurescript-mode . smartparens-strict-mode))
-  :custom
-  (lsp-keymap-prefix "C-c l")
-  (lsp-clojure-custom-server-command '("bash" "-c" "~/.emacs.d/lsp/clojure-lsp")))
+;;; package --- clojure config
+;;; Commentary:
+;;; Code:
 
 (use-package clojure-mode
   :ensure t
@@ -35,15 +25,6 @@
   (setq tab-always-indent 'complete)
   (setq cider-enrich-classpath t))
 
-(use-package lsp-treemacs
-  :ensure t)
-
-(use-package flycheck
-  :ensure t)
-
-(use-package company
-  :ensure t)
-
 (use-package smartparens-mode
   :ensure smartparens  ;; install the package
   :hook (clojure-mode clojurescript-mode clojurec-mode prog-mode text-mode markdown-mode) ;; add `smartparens-mode` to these hooks
@@ -57,15 +38,11 @@
          ("M-)" . sp-unwrap-round)
          ("M-]" . sp-unwrap-square)
          ("M-}" . sp-unwrap-curly)
-         ("C-<right>" . 'sp-forward-slurp-sexp)
+         ("C-<right>" . sp-forward-slurp-sexp)
          ("C-<left>" . sp-forward-barf-sexp)
          ("M-<right>" . sp-backward-slurp-sexp)
          ("M-<left>" . sp-backward-barf-sexp)
          ("C-M-t" . sp-transpose-sexp)))
 
-(use-package which-key
-  :ensure t
-  :config
-  (which-key-mode 1))
-
 (provide '_clojure)
+;;; _clojure.el ends here

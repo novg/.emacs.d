@@ -16,4 +16,6 @@ custom.el
 lsp/
 .lsp*
 bookmarks
+projectile-bookmarks.eld
+projects
 
