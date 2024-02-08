@@ -76,6 +76,8 @@
      (concat "/sudo:root@localhost:"
 	     buffer-file-name))))
 
+(require 'dired-x)
+
 ;; Centralized location where emacs will leave its temporary files
 (setq temporary-file-directory "~/.emacs.d/saves")
  (setq backup-directory-alist
