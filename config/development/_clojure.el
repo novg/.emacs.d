@@ -27,7 +27,19 @@
 
 (use-package smartparens-mode
   :ensure smartparens  ;; install the package
-  :hook (clojure-mode clojurescript-mode clojurec-mode prog-mode text-mode markdown-mode) ;; add `smartparens-mode` to these hooks
+  :hook (clojure-mode
+         clojurescript-mode
+         clojurec-mode
+         prog-mode
+         text-mode
+         markdown-mode
+         eval-expression-minibuffer-setup-hook
+         emacs-lisp-mode-hook
+         ielm-mode-hook
+         lisp-interaction-mode-hook
+         lisp-mode-hook
+         slime-repl-mode-hook
+         sly-mrepl-mode-hook) ;; add `smartparens-mode` to these hooks
   :config
   ;; load default config
   ;; (require 'smartparens-config)
@@ -43,6 +55,9 @@
          ("M-<right>" . sp-backward-slurp-sexp)
          ("M-<left>" . sp-backward-barf-sexp)
          ("C-M-t" . sp-transpose-sexp)))
+
+(add-hook 'sly-mrepl-mode-hook 'smartparens-mode)
+(add-hook 'slime-repl-mode-hook 'smartparens-mode)
 
 (provide '_clojure)
 ;;; _clojure.el ends here

@@ -12,13 +12,18 @@
 (when window-system
   (set-frame-size (selected-frame) 160 35))
 
+(when (display-graphic-p)
+  (tool-bar-mode 0) ;; disable tool bar
+  (menu-bar-mode 0) ;; disable menu bar
+  (scroll-bar-mode 0)) ;; disable scroll bar
 (setq inhibit-startup-screen t) ;; disable startup screen
-(tool-bar-mode -1) ;; disable tool bar
-(menu-bar-mode -1) ;; disable menu bar
-(scroll-bar-mode -1) ;; disable scroll bar
 (setq frame-title-format "GNU Emacs: %b")
 (setq ring-bell-function 'ignore)
+(setq-default indent-tabs-mode nil) ;; use spaces, not tabs, for indentation
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(setq show-paren-delay 0)
+(show-paren-mode)
 
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
@@ -94,6 +99,7 @@
 		    week))
 	(message "%s" file)
 	(delete-file file))))
+
 ;;
 
 (require '_packages)

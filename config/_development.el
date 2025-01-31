@@ -44,7 +44,7 @@
 
 ;;
 (require '_clojure)
-(require '_dotnet)
+;; (require '_dotnet)
 (require '_cl)
 
 (provide '_development)
